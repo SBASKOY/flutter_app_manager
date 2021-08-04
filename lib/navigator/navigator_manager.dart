@@ -1,4 +1,5 @@
 library flutter_app_manager;
+
 import 'package:flutter/material.dart';
 
 class NavigatorManager {
@@ -24,9 +25,11 @@ class NavigatorManager {
   late final BuildContext context;
 
   NavigatorManager._init() {
+    print("_________init_______________");
     //context = MyApp.navKey.currentState!.context;
   }
   static setContext(GlobalKey<NavigatorState> key) {
+    print("_________setContext_______________");
     NavigatorManager.instance.context = key.currentState!.context;
   }
 
