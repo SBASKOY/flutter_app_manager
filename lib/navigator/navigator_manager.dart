@@ -1,3 +1,4 @@
+library flutter_app_manager;
 import 'package:flutter/material.dart';
 
 class NavigatorManager {

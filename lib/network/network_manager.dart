@@ -1,3 +1,4 @@
+library flutter_app_manager;
 import 'dart:convert';
 
 import 'package:http/http.dart';

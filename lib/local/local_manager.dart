@@ -1,3 +1,5 @@
+
+library flutter_app_manager;
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum LocalManagerKey { USERNAME, PASSWORD }
