@@ -22,24 +22,25 @@ class NavigatorManager {
     return _instance!;
   }
 
-  late final BuildContext context;
+  BuildContext? _context;
 
   NavigatorManager._init() {
     print("_________init_______________");
     //context = MyApp.navKey.currentState!.context;
   }
   setContext(GlobalKey<NavigatorState> key) {
-    print("_________setContext_______________");
-    this.context = key.currentState!.context;
+    if (_context != null) {
+      this._context = key.currentState!.context;
+    }
   }
 
-  void get back => Navigator.of(this.context).pop();
-  backWithParam(param) => Navigator.of(this.context).pop(param);
-  dynamic push(model) => Navigator.push(this.context, MaterialPageRoute(builder: (_) => model));
-  pushNamedAndRemoveUntil(String path) => Navigator.pushNamedAndRemoveUntil(this.context, path, (route) => false);
+  void get back => Navigator.of(this._context!).pop();
+  backWithParam(param) => Navigator.of(this._context!).pop(param);
+  dynamic push(model) => Navigator.push(this._context!, MaterialPageRoute(builder: (_) => model));
+  pushNamedAndRemoveUntil(String path) => Navigator.pushNamedAndRemoveUntil(this._context!, path, (route) => false);
 
   /// route => false
   pushReplement(model) =>
-      Navigator.pushAndRemoveUntil(this.context, MaterialPageRoute(builder: (_) => model), (route) => false);
-  pushRep(model) => Navigator.pushReplacement(this.context, MaterialPageRoute(builder: (_) => model));
+      Navigator.pushAndRemoveUntil(this._context!, MaterialPageRoute(builder: (_) => model), (route) => false);
+  pushRep(model) => Navigator.pushReplacement(this._context!, MaterialPageRoute(builder: (_) => model));
 }
