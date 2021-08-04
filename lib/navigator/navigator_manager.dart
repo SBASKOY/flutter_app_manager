@@ -28,9 +28,9 @@ class NavigatorManager {
     print("_________init_______________");
     //context = MyApp.navKey.currentState!.context;
   }
-  static setContext(GlobalKey<NavigatorState> key) {
+  setContext(GlobalKey<NavigatorState> key) {
     print("_________setContext_______________");
-    NavigatorManager.instance.context = key.currentState!.context;
+    this.context = key.currentState!.context;
   }
 
   void get back => Navigator.of(this.context).pop();
