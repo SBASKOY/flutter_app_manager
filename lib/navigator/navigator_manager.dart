@@ -29,7 +29,7 @@ class NavigatorManager {
     //context = MyApp.navKey.currentState!.context;
   }
   setContext(GlobalKey<NavigatorState> key) {
-    if (_context != null) {
+    if (_context == null) {
       this._context = key.currentState!.context;
     }
   }
